@@ -1,0 +1,47 @@
+if is-command mount; then
+  function dispatch:mount {
+    (( $# == 0 )) && return 0
+
+    local ret=0
+    local arg
+
+    for arg ("$@"); do
+      case "$1" in
+        -l|-h|-V|-v) ;;
+        *) ret=1
+          break
+          ;;
+      esac
+    done
+    return $ret
+  }
+  sudo:dispatch dispatch:mount mount
+fi
+
+if is-command umount; then
+  function dispatch:umount {
+    (( $# == 0 )) && return 0
+
+    local ret=0
+    local arg
+
+    for arg ("$@"); do
+      case "$1" in
+        -h|-V|-v) ;;
+      *) ret=1
+        break
+        ;;
+      esac
+    done
+    return $ret
+  }
+  sudo:dispatch dispatch:umount umount
+fi
+
+is-command shutdown && \
+  sudo:dispatch true shutdown
+
+is-command pm-suspend && \
+  sudo:dispatch true pm-suspend
+
+# vim: ft=zsh sts=2 ts=2 sw=2 et fdm=marker fmr={{{,}}}

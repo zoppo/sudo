@@ -1,0 +1,55 @@
+if is-command pacman || is-command pacman-color; then
+  function dispatch:pacman {
+    case "$1" in
+      -S|-S[^sih]*|-R*|-U*|-D*)
+        return 0
+        ;;
+      *)
+        return 1
+        ;;
+    esac
+  }
+
+  if is-command pacman-color; then
+    sudo:dispatch dispatch:pacman pacman-color
+
+    if ! is-command pacman; then
+      alias pacman=pacman-color
+    fi
+  fi
+
+  if is-command pacman; then
+    sudo:dispatch dispatch:pacman pacman
+  fi
+
+  if is-command yaourt; then
+    function dispatch:yaourt {
+      case "$1" in
+        -S) return 0 ;;
+        *) return 1 ;;
+      esac
+    }
+    sudo:dispatch dispatch:yaourt yaourt
+  fi
+
+  function dispatch:packer {
+    case "$1" in
+      -S|-S[^si]*|-R*|-U*|-D*)
+        return 0 ;;
+      *) return 1 ;;
+    esac
+  }
+
+  if is-command packer; then
+    sudo:dispatch dispatch:packer packer
+  elif is-command packer-color; then
+    alias packer=packer-color
+    sudo:dispatch dispatch:packer packer-color
+  else
+    unfunction dispatch:packer
+  fi
+
+  is-command abs && sudo:dispatch true abs
+fi
+
+# vim: ft=zsh sts=2 ts=2 sw=2 et fdm=marker fmr={{{,}}}
