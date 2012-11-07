@@ -4,7 +4,6 @@
 }
 
 is-callable "$1" || return 1
-is-command "$2" || return 1
 
 eval "function ${(q)2} {
   if ${(q)1} \"\$@\"; then

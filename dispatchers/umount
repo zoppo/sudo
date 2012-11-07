@@ -1,13 +1,15 @@
 function sudo:dispatch:umount {
-  (( $# == 0 )) && return 0
+  (( $# == 0 )) && return 1
 
   local arg
   for arg ("$@"); do
     case "$1" in
       -h|-V|-v) ;;
-      *) return 1 ;;
+      *) return 0 ;;
     esac
   done
+
+  return 1
 }
 
 sudo:dispatch sudo:dispatch:umount umount

@@ -20,16 +20,16 @@ else
     'pacman' 'pacman-color'
 
   for program ("$programs[@]")
-    source-relative "dispatchers/$program" || warn "sudo: $program: program not found"
+    source-relative "dispatchers/$program" || warn "sudo: $program: dispatcher not found"
   unset program programs
 
   zstyle -a ':zoppo:plugin:sudo' environments environments
 
-  for environment ($environments[@]); do
+  for environment ("$environments[@]"); do
     zstyle -a ':zoppo:plugin:sudo:environment' "$environment" programs
 
     for program ("$programs[@]")
-      source-relative "dispatchers/$program" || warn "sudo: $program: program not found"
+      source-relative "dispatchers/$program" || warn "sudo: $program: dispatcher not found"
     unset program programs
   done
   unset environment environments
