@@ -1,0 +1,15 @@
+function sudo:dispatch:mount {
+  (( $# == 0 )) && return 0
+
+  local arg
+  for arg ("$@"); do
+    case "$1" in
+      -l|-h|-V|-v) ;;
+      *) return 1 ;;
+    esac
+  done
+}
+
+sudo:dispatch sudo:dispatch:mount mount
+
+# vim: ft=zsh sts=2 ts=2 sw=2 et fdm=marker fmr={{{,}}}
