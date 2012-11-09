@@ -1,10 +1,7 @@
 function sudo:dispatch:yaourt {
   case "$1" in
-    -S)
-      return 0 ;;
-
-    *)
-      return 1 ;;
+    -S) return 0 ;;
+    *) return 1 ;;
   esac
 }
 

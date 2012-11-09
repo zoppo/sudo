@@ -1,10 +1,7 @@
 function sudo:dispatch:pacman {
   case "$1" in
-    -S|-S[^sih]*|-R*|-U*|-D*)
-      return 0 ;;
-
-    *)
-      return 1 ;;
+    -S|-S[^sih]*|-R*|-U*|-D*) return 0 ;;
+    *) return 1 ;;
   esac
 }
 

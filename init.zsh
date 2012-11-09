@@ -7,16 +7,19 @@ fi
 
 # Environments {{{
 zdefault ':zoppo:plugin:sudo:environment' utils \
-  'cat' 'tail' 'rm' 'mv' 'cp' 'chown' 'chmod' 'chgrp' 'mkdir'
+  'cat' 'tail' 'rm' 'mv' 'cp' 'chown' 'chmod' 'chgrp' 'mkdir' 'useradd' 'gpasswd' 'usermod'
 
 zdefault ':zoppo:plugin:sudo:environment' system \
-  'mount' 'umount' 'shutdown' 'reboot' 'poweroff' 'halt' 'pm-suspend'
+  'mount' 'umount' 'shutdown' 'reboot' 'poweroff' 'halt' 'pm-suspend' 'systemctl'
+
+zdefault ':zoppo:plugin:sudo:environment' editors \
+  'vi' 'nano' 'vim' 'emacs'
 
 zdefault ':zoppo:plugin:sudo:environment' arch \
   'pacman' 'pacman-color' 'yaourt' 'packer' 'abs'
 
 zdefault ':zoppo:plugin:sudo:environment' gentoo \
-  'emerge' 'eselect' 'revdep-rebuild' 'perl-cleaner' 'lafilefixer' 'python-updater' 'layman'
+  'emerge' 'eselect' 'eclean' 'revdep-rebuild' 'perl-cleaner' 'lafilefixer' 'python-updater' 'layman' 'etc-update'
 # }}}
 
 if zdefault -t ':zoppo:plugin:sudo' all 'no'; then
