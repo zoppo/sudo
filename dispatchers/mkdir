@@ -2,7 +2,7 @@ function sudo:dispatch:mkdir {
   while (( $# != 0 )); do
     case "$1" in
       -*) ;;
-      *) [[ -w "$1" ]] && return 0 ;;
+      *) [[ -w "$1" ]] || return 0 ;;
     esac
 
     shift

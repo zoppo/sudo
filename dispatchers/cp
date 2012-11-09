@@ -16,7 +16,7 @@ function sudo:dispatch:cp {
   done
 
   while (( $# > ($#target ? 0 : 1) )); do
-    if [[ ! -r "$1" ]]; then
+    if [[ -e "$1" && ! -r "$1" ]]; then
       return 0
     fi
 

@@ -16,7 +16,7 @@ function sudo:dispatch:mv {
   done
 
   while (( $# > ($#target ? 0 : 1) )); do
-    if [[ -e "$1" ! -w "$1" || ! -r "$1" ]]; then
+    if [[ ! -w "$1" || (-e "$1" && ! -r "$1") ]]; then
       return 0
     fi
 
