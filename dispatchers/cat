@@ -1,17 +1,15 @@
-function sudo:dispatch:mount {
+function sudo:dispatch:cat {
   while (( $# != 0 )); do
     case "$1" in
-      -l|-h|-V|-v) ;;
+      -*) shift ;;
 
-      *) return 0 ;;
+      *) if [[ ! -r "$arg" ]] return 0 ;;
     esac
-
-    shift
   done
 
   return 1
 }
 
-sudo:dispatch sudo:dispatch:mount mount
+sudo:dispatch sudo:dispatch:cat cat
 
 # vim: ft=zsh sts=2 ts=2 sw=2 et fdm=marker fmr={{{,}}}
