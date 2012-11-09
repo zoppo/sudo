@@ -13,7 +13,7 @@ zdefault ':zoppo:plugin:sudo:environment' system \
   'mount' 'umount' 'shutdown' 'reboot' 'poweroff' 'halt' 'pm-suspend' 'systemctl'
 
 zdefault ':zoppo:plugin:sudo:environment' editors \
-  'vi' 'nano' 'vim' 'emacs'
+  'vi' 'nano' 'vim' 'emacs' 'ed'
 
 zdefault ':zoppo:plugin:sudo:environment' arch \
   'pacman' 'pacman-color' 'yaourt' 'packer' 'abs'
