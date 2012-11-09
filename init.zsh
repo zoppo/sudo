@@ -20,6 +20,9 @@ zdefault ':zoppo:plugin:sudo:environment' arch \
 
 zdefault ':zoppo:plugin:sudo:environment' gentoo \
   'emerge' 'eselect' 'eclean' 'revdep-rebuild' 'perl-cleaner' 'lafilefixer' 'python-updater' 'layman' 'etc-update'
+
+zdefault ':zoppo:plugin:sudo:environment' debian \
+  'apt-get' 'dpkg'
 # }}}
 
 if zdefault -t ':zoppo:plugin:sudo' all 'no'; then
