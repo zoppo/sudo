@@ -23,9 +23,10 @@ function sudo:dispatch:cp {
     shift
   done
 
-  if [[ ! -w "${target:-$1}" ]]; then
-    return 0
-  fi
+  # TODO: we need something proper to check creation possibility
+  # if [[ ! -w "${target:-$1}" ]]; then
+  #  return 0
+  # fi
 
   return 1
 }
