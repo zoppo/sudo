@@ -16,7 +16,7 @@ zdefault ':zoppo:plugin:sudo:environment' editors \
   'vi' 'nano' 'vim' 'emacs' 'ed'
 
 zdefault ':zoppo:plugin:sudo:environment' arch \
-  'pacman' 'pacman-color' 'yaourt' 'packer' 'abs' 'rc.d'
+  'pacman' 'pacman-color' 'yaourt' 'packer' 'packer-color' 'abs' 'rc.d'
 
 zdefault ':zoppo:plugin:sudo:environment' gentoo \
   'emerge' 'eselect' 'eclean' 'revdep-rebuild' 'perl-cleaner' 'lafilefixer' 'python-updater' 'layman' 'etc-update'
