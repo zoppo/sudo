@@ -10,7 +10,7 @@ zdefault ':zoppo:plugin:sudo:environment' utils \
   'cat' 'tail' 'rm' 'mv' 'cp' 'chown' 'chmod' 'chgrp' 'mkdir' 'useradd' 'gpasswd' 'usermod'
 
 zdefault ':zoppo:plugin:sudo:environment' system \
-  'mount' 'umount' 'shutdown' 'reboot' 'poweroff' 'halt' 'pm-suspend' 'systemctl'
+  'mount' 'umount' 'cryptsetup' 'shutdown' 'reboot' 'poweroff' 'halt' 'pm-suspend' 'systemctl'
 
 zdefault ':zoppo:plugin:sudo:environment' editors \
   'vi' 'nano' 'vim' 'emacs' 'ed'
