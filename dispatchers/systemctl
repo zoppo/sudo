@@ -1,4 +1,7 @@
 function sudo:dispatch:systemctl {
+  if [ -n "${@[(r)--user]}" ]; then
+    return 1
+  fi
   while (( $# != 0 )); do
     case "$1" in
       enable|disable|start|stop|restart) return 0 ;;
